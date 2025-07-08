@@ -1,6 +1,7 @@
 services:
   - type: web
     name: exness-laravel
+    runtime: docker        # ✅ Bắt buộc để Render hiểu là dùng Dockerfile
     plan: free
     region: oregon
     dockerfilePath: ./Dockerfile
