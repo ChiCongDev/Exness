@@ -5,8 +5,12 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 
 // Trang chính truy cập '/'
+//Route::get('/', function () {
+//    return view('getItNow');
+//});
+
 Route::get('/', function () {
-    return view('getItNow');
+    return '🎉 Laravel hoạt động rồi!';
 });
 
 // Khi bấm nút "Nhận ngay", chuyển đến welcome
