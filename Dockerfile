@@ -28,4 +28,4 @@ RUN chmod -R 777 storage bootstrap/cache database
 EXPOSE 8080
 
 # Chạy Laravel bằng server tích hợp
-CMD php artisan serve --host=0.0.0.0 --port=8080
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
