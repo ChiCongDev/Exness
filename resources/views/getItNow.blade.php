@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claim 100BTC</title>
+    <title>Claim 10 BTC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
     <style>
@@ -21,7 +21,7 @@
         </svg>
     </div>
     <h1 class="text-2xl font-bold mb-3 text-gray-800">🎉 Congratulations!</h1>
-    <p class="text-lg font-medium mb-2">You are eligible to receive <span class="text-yellow-500 font-extrabold">100BTC</span></p>
+    <p class="text-lg font-medium mb-2">You are eligible to receive <span class="text-yellow-500 font-extrabold">10 BTC</span></p>
     <p class="text-sm text-gray-600 mb-6">Please log in to <strong>Exness</strong> to claim now.</p>
 
     <!-- ✅ CLAIM FORM -->
