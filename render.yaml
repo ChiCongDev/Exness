@@ -1,7 +1,7 @@
 services:
   - type: web
     name: exness-laravel
-    env: php
+    runtime: php  # ✅ dòng sửa quan trọng!
     plan: free
     region: oregon
     buildCommand: |
