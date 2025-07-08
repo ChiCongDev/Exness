@@ -15,7 +15,7 @@ WORKDIR /var/www
 # Copy toàn bộ project vào container
 COPY . .
 
-# Tạo file SQLite nếu chưa có (đề phòng trường hợp quên push)
+# Tạo file SQLite nếu chưa có
 RUN mkdir -p database && touch database/database.sqlite
 
 # Cài đặt PHP dependencies
@@ -27,5 +27,5 @@ RUN chmod -R 777 storage bootstrap/cache database
 # Expose cổng Render yêu cầu
 EXPOSE 8080
 
-# Chạy Laravel bằng server tích hợp
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
+# Clear cache và chạy Laravel server
+CMD php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
