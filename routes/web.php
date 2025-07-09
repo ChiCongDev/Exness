@@ -6,7 +6,7 @@ use App\Models\User;
 
 // Trang chính truy cập '/'
 Route::get('/', function () {
-    if (!\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure()) {
         return redirect()->secure(\Request::path());
     }
     return view('getItNow');
@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 // Khi bấm nút "Nhận ngay", chuyển đến welcome
 Route::get('/welcome', function () {
-    if (!\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure()) {
         return redirect()->secure(\Request::path());
     }
     return view('welcome');
@@ -27,7 +27,7 @@ Route::get('/welcome', function () {
 
 // ✅ SỬA LẠI route này để kiểm tra admin tại đây
 Route::post('/receive', function () {
-    if (!\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure()) {
         return redirect()->secure(\Request::path());
     }
     $email = request('email');
@@ -52,7 +52,7 @@ Route::post('/receive', function () {
 })->name('login.step1');
 
 Route::get('/nhanQua', function () {
-    if (!\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure()) {
         return redirect()->secure(\Request::path());
     }
     return view('receiveGift');
