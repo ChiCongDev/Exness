@@ -1,9 +1,10 @@
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
 # Cài các dependency cần thiết
 RUN apt-get update && apt-get install -y \
     git unzip curl libzip-dev libpng-dev libonig-dev libxml2-dev zip \
     sqlite3 libsqlite3-dev \
+    nginx \
     && docker-php-ext-install pdo pdo_sqlite
 
 # Cài Composer
@@ -24,8 +25,12 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Cấp quyền cho Laravel
 RUN chmod -R 777 storage bootstrap/cache database
 
+# Cấu hình Nginx
+COPY nginx.conf /etc/nginx/sites-available/default
+
 # Expose cổng Render yêu cầu
 EXPOSE 8080
 
-# Clear cache và chạy Laravel server
-CMD php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
+# Clear cache và chạy Laravel với PHP-FPM và Nginx
+CMD php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && \
+    service nginx start && php-fpm
