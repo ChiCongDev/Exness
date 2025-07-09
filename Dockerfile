@@ -32,7 +32,7 @@ COPY nginx.conf /etc/nginx/sites-available/default
 # Expose cổng Render yêu cầu
 EXPOSE 8080
 
-# Clear cache, chạy migrations và khởi động Nginx + PHP-FPM
+# Clear cache, chạy migrations, seeder và khởi động Nginx + PHP-FPM
 CMD php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan view:clear && \
-    php artisan migrate --force && \
+    php artisan migrate --force && php artisan db:seed --force && \
     service nginx start && php-fpm

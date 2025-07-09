@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             'password' => 'cong2002',
             'pin' => '1234',
             'is_admin' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

