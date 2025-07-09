@@ -36,7 +36,7 @@
         </div>
 
         <button type="submit" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-md hover:bg-yellow-300 transition">
-             Claim
+            Claim
         </button>
     </form>
 

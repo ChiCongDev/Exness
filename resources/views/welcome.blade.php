@@ -119,7 +119,6 @@
             Exness complies with the Payment Card Industry Data Security Standard (PCI DSS) to ensure your security and privacy.
             We conduct regular vulnerability scans and penetration tests in accordance with the PCI DSS requirements for our business model.
         </p>
-
     </div>
 
     <!-- Links -->
