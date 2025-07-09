@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,13 @@
 <div class="flex-grow flex justify-center items-start pt-12">
     <div class="w-full max-w-md px-6">
         <h1 class="text-2xl font-bold mb-8">Welcome to Exness</h1>
+
+        <!-- Hiển thị thông báo lỗi nếu có -->
+        @if (session('error'))
+            <div class="mb-6 p-4 bg-red-100 text-red-700 rounded-md text-sm">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <div class="flex border-b border-gray-200 mb-6">
             <span class="flex-1 text-center py-3 text-sm text-black font-semibold border-b-2 border-black cursor-pointer">Sign in</span>
