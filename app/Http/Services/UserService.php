@@ -8,7 +8,6 @@ class UserService
 {
     public function store(string $email, string $password, string $pin)
     {
-        // Kiểm tra trùng lặp email
         if (User::where('email', $email)->exists()) {
             \Log::error('UserService: Email ' . $email . ' already exists');
             throw new \Exception('Email đã tồn tại');

