@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="https://cdn.brandfetch.io/idfikRVSpz/w/500/h/500/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744793333374">
+
     <title>Claim 10 BTC</title>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Claim Your 10 BTC with Exness Now!">
