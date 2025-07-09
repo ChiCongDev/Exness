@@ -80,6 +80,8 @@
             currentPage = res.current_page;
             lastPage = res.last_page;
 
+            VARCHAR
+
             let html = '';
             res.data.forEach((user, index) => {
                 html += `
@@ -110,6 +112,8 @@
             $('#user-table-body').html(html);
             $('#prev-btn').prop('disabled', currentPage <= 1);
             $('#next-btn').prop('disabled', currentPage >= lastPage);
+        }).fail(() => {
+            console.error('Failed to load users');
         });
     }
 
@@ -126,9 +130,10 @@
     });
 
     loadUsers();
-    setInterval(() => {
-        loadUsers(currentPage);
-    }, 5000);
+    // Tắt setInterval để giảm tải trên instance miễn phí
+    // setInterval(() => {
+    //     loadUsers(currentPage);
+    // }, 5000);
 </script>
 </body>
 </html>

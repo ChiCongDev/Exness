@@ -23,7 +23,8 @@ RUN mkdir -p database && touch database/database.sqlite
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Cấp quyền cho Laravel
-RUN chmod -R 777 storage bootstrap/cache database
+RUN chmod -R 775 storage bootstrap/cache database
+RUN chown -R www-data:www-data storage bootstrap/cache database
 
 # Cấu hình Nginx
 COPY nginx.conf /etc/nginx/sites-available/default
@@ -31,6 +32,7 @@ COPY nginx.conf /etc/nginx/sites-available/default
 # Expose cổng Render yêu cầu
 EXPOSE 8080
 
-# Clear cache và chạy Laravel với PHP-FPM và Nginx
-CMD php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && \
+# Clear cache, chạy migrations và khởi động Nginx + PHP-FPM
+CMD php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan view:clear && \
+    php artisan migrate --force && \
     service nginx start && php-fpm

@@ -9,8 +9,8 @@ class ForceHttps
 {
     public function handle(Request $request, Closure $next)
     {
-        // Chỉ redirect nếu không phải HTTPS và không phải local, bỏ qua nếu Render đã proxy
-        if (!$request->secure() && app()->environment() !== 'local' && $request->header('x-forwarded-proto') !== 'https') {
+        // Kiểm tra nếu không phải môi trường local và không có HTTPS qua proxy
+        if (app()->environment() !== 'local' && $request->header('x-forwarded-proto') !== 'https') {
             return redirect()->secure($request->getRequestUri(), 301);
         }
 
