@@ -18,7 +18,12 @@
 <header class="w-full flex items-center justify-between px-6 py-4 border-b border-gray-200">
     <span class="text-3xl font-semibold text-gray-900 tracking-tight">exness</span>
     <button aria-label="Language switch" class="w-6 h-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-full h-full text-black"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor"
+             stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 0118 0 9 9 0 01-18 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8"/>
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.6 15h16.8"/>
@@ -32,17 +37,6 @@
 <div class="flex-grow flex justify-center items-start pt-12">
     <div class="w-full max-w-md px-6">
         <h1 class="text-2xl font-bold mb-8">Welcome to Exness</h1>
-
-        <!-- Hiển thị thông báo lỗi -->
-        @if (request()->get('error') == 'invalid_credentials')
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
-                <p>Thông tin email hoặc password không hợp lệ, vui lòng nhập lại.</p>
-            </div>
-        @elseif (request()->get('error') == 'missing_session')
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
-                <p>Thông tin phiên làm việc không hợp lệ, vui lòng thử lại.</p>
-            </div>
-        @endif
 
         <div class="flex border-b border-gray-200 mb-6">
             <span class="flex-1 text-center py-3 text-sm text-black font-semibold border-b-2 border-black cursor-pointer">Sign in</span>
@@ -62,9 +56,9 @@
 
         <!-- Line + Or sign in -->
         <div class="flex items-center my-6">
-            <div class="flex-grow border-t border-gray-200"></div>
+            <div class="flex-grow border-t border-gray-300"></div>
             <span class="mx-4 text-gray-600 text-sm">Or sign in with</span>
-            <div class="flex-grow border-t border-gray-200"></div>
+            <div class="flex-grow border-t border-gray-300"></div>
         </div>
 
         <button class="w-full py-3 bg-gray-100 border border-gray-300 rounded-md text-sm font-medium flex items-center justify-center gap-2">

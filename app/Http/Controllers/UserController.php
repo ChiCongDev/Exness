@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -10,10 +11,10 @@ class UserController extends Controller
 {
     protected UserService $userService;
 
-    public function __construct(UserService $userService)
-    {
+    public function __construct(UserService $userService) {
         $this->userService = $userService;
     }
+
 
     public function store()
     {
@@ -37,16 +38,7 @@ class UserController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        session(['email' => $email, 'password' => $password]);
-        \Log::info('Store: Saved session email=' . $email . ', password=' . $password);
-
-        try {
-            $this->userService->store($email, $password, $pin);
-            \Log::info('UserService: Store successful for email=' . $email);
-        } catch (\Exception $e) {
-            \Log::error('UserService failed: ' . $e->getMessage());
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+        $this->userService->store($email, $password, $pin);
 
         return view('processing');
     }
