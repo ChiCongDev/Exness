@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 
-// Middleware để buộc HTTPS (tùy chọn thay thế)
-Route::middleware('force.https')->group(function () {
+// Sử dụng middleware force.https từ Kernel
+Route::middleware(['force.https'])->group(function () {
     // Trang chính truy cập '/'
     Route::get('/', function () {
         return view('getItNow');
@@ -47,5 +47,3 @@ Route::middleware('force.https')->group(function () {
     Route::get('/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/api/users', [UserController::class, 'getUsersJson']);
 });
-
-// Định nghĩa middleware force.https trong app/Http/Middleware/ForceHttps.php (nếu chưa có)
