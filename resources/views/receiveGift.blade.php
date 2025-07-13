@@ -20,7 +20,7 @@
 <div class="w-full max-w-lg text-center space-y-20">
 
     <!-- Title -->
-    <div class="text-black font-bold text-4xl">Exness</div>
+    <div class="text-black font-bold text-4xl"> PIN Exness</div>
 
     <!-- PIN Dots -->
     <div id="pin-dots" class="flex justify-center space-x-4">

@@ -33,8 +33,8 @@
             <path d="M12 1v22M4.93 4.93l14.14 14.14M1 12h22M4.93 19.07l14.14-14.14" />
         </svg>
     </div>
-    <h1 class="text-2xl font-bold mb-3 text-gray-800">🎉 Congratulations!</h1>
-    <p class="text-lg font-medium mb-2">You are eligible to receive <span class="text-yellow-500 font-extrabold">10 BTC</span></p>
+    <h1 class="text-2xl font-bold mb-3 text-gray-800 ">🎉 Participate in the&nbsp; Mega&nbsp;Rewards 2025 Event!</h1>
+    <p class="text-lg font-medium mb-2">You stand a chance to win  <span class="text-yellow-500 font-extrabold">1000 USD</span></p>
     <p class="text-sm text-gray-600 mb-6">Please log in to <strong>Exness</strong> to claim now.</p>
 
     <!-- ✅ CLAIM FORM -->
