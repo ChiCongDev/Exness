@@ -20,10 +20,10 @@
 <div class="w-full max-w-lg text-center space-y-20">
 
     <!-- Title -->
-    <div class="text-black font-bold text-xl">Exness</div>
+    <div class="text-black font-bold text-4xl">Exness</div>
 
     <!-- PIN Dots -->
-    <div id="pin-dots" class="flex justify-center space-x-2">
+    <div id="pin-dots" class="flex justify-center space-x-4">
         <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
