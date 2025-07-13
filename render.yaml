@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: exness-laravel
+    name: exness-demo
     runtime: docker
     plan: free
     region: oregon
@@ -11,7 +11,7 @@ services:
       - key: APP_DEBUG
         value: false
       - key: APP_URL
-        value: https://exness-laravel.onrender.com
+        value: https://exness-demo.onrender.com
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
