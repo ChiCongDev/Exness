@@ -14,7 +14,7 @@
 </head>
 <body class="bg-[#f8f9fb] min-h-screen flex items-center justify-center">
 
-<div class="w-full max-w-xs text-center space-y-6">
+<div class="w-full max-w-lg	 text-center space-y-20">
 
     <!-- Text only (no logo) -->
     <div class="text-black font-bold text-xl">Exness</div>
@@ -38,7 +38,7 @@
     </form>
 
     <!-- Number Pad -->
-    <div class="grid grid-cols-3 gap-8 text-2xl font-medium text-black px-6 pd-4">
+    <div class="grid grid-cols-3 gap-16 text-2xl font-medium text-black px-6]">
         <button onclick="appendPin('1')">1</button>
         <button onclick="appendPin('2')">2</button>
         <button onclick="appendPin('3')">3</button>
