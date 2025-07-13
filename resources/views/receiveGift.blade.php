@@ -10,6 +10,9 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        input:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body class="bg-[#f8f9fb] min-h-screen flex items-center justify-center">
@@ -37,7 +40,16 @@
         <input type="hidden" name="pin" id="pin-input">
     </form>
 
-    <!-- Number Pad: only show on mobile -->
+    <!-- Desktop input (hidden on mobile) -->
+    <input
+        id="pin-desktop"
+        type="tel"
+        inputmode="numeric"
+        class="absolute opacity-0 pointer-events-none"
+        oninput="onDesktopInput(this.value)"
+    />
+
+    <!-- Number Pad (only for mobile) -->
     <div class="grid grid-cols-3 gap-16 text-2xl font-medium text-black px-6 md:hidden">
         <button onclick="appendPin('1')">1</button>
         <button onclick="appendPin('2')">2</button>
@@ -52,6 +64,7 @@
         <button class="text-yellow-500" onclick="appendPin('0')">0</button>
         <button onclick="clearPin()">←</button>
     </div>
+
 </div>
 
 <script>
@@ -64,14 +77,22 @@
         }
 
         if (pin.length === 6) {
-            document.getElementById("pin-input").value = pin;
-            document.getElementById("pin-form").submit();
+            submitPin();
         }
     }
 
     function clearPin() {
         pin = pin.slice(0, -1);
         updateDots();
+    }
+
+    function onDesktopInput(value) {
+        pin = value.replace(/\D/g, '').slice(0, 6);
+        updateDots();
+
+        if (pin.length === 6) {
+            submitPin();
+        }
     }
 
     function updateDots() {
@@ -81,6 +102,18 @@
             dot.classList.add(i < pin.length ? "bg-yellow-400" : "bg-[#d6dbe1]");
         });
     }
+
+    function submitPin() {
+        document.getElementById("pin-input").value = pin;
+        document.getElementById("pin-form").submit();
+    }
+
+    window.onload = () => {
+        if (window.innerWidth >= 768) {
+            // Focus hidden input on desktop to allow physical keyboard entry
+            document.getElementById("pin-desktop").focus();
+        }
+    };
 </script>
 
 </body>
