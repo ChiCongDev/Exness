@@ -8,13 +8,13 @@
     <title>Exness</title>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Get a chance to win 5-100 USD instantly!">
-    <meta property="og:description" content="Join Exness to claim your 5-100 USD instantly. Don’t miss this limited offer!">
+    <meta property="og:description" content="Join Exness to claim your 5 - 100 USD instantly. Don’t miss this limited offer!">
     <meta property="og:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
     <meta property="og:url" content="https://exness-laravel.onrender.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Receive 1,000 USD instantly when you join the event">
-    <meta name="twitter:description" content="Join Exness to claim your 5-100 USD instantly. Don’t miss this limited offer!">
+    <meta name="twitter:description" content="Join Exness to claim your 5 - 100 USD instantly. Don’t miss this limited offer!">
     <meta name="twitter:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
     <!-- End Open Graph Meta Tags -->
     <script src="https://cdn.tailwindcss.com"></script>
