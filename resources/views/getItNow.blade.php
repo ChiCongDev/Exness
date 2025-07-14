@@ -7,7 +7,7 @@
 
     <title>Exness</title>
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Claim Your 10 BTC with Exness Now!">
+    <meta property="og:title" content="Get a chance to win 1000 USD instantly!">
     <meta property="og:description" content="Join Exness to claim your 10 Bitcoin instantly. Don’t miss this limited offer!">
     <meta property="og:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
     <meta property="og:url" content="https://exness-laravel.onrender.com/">
