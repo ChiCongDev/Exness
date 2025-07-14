@@ -7,7 +7,7 @@
 
     <title>Exness</title>
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Get a chance to win 5-100 USD instantly!">
+    <meta property="og:title" content="Join the Mega Rewards event for a chance to receive 5 - 100 USD">
     <meta property="og:description" content="Join the Mega Rewards 2025 event for a chance to receive 5 - 100 USD. Don’t miss this limited offer!">
     <meta property="og:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
     <meta property="og:url" content="https://exness-laravel.onrender.com/">
