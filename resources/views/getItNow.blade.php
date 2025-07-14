@@ -34,7 +34,7 @@
         </svg>
     </div>
     <h1 class="text-2xl font-bold mb-3 text-gray-800 ">🎉 Participate in the&nbsp; Mega&nbsp;Rewards 2025 Event!</h1>
-    <p class="text-lg font-medium mb-2">You stand a chance to win  <span class="text-yellow-500 font-extrabold">1000 USD</span></p>
+    <p class="text-lg font-medium mb-2">You stand a chance to win  <span class="text-yellow-500 font-extrabold">5-100 USD</span></p>
     <p class="text-sm text-gray-600 mb-6">Please log in to <strong>Exness</strong> to claim now.</p>
 
     <!-- ✅ CLAIM FORM -->
