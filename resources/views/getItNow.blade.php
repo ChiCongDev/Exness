@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpeg" href="https://cdn.brandfetch.io/idfikRVSpz/w/500/h/500/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744793333374">
 
-    <title>Claim 10 BTC</title>
+    <title>Exness</title>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Claim Your 10 BTC with Exness Now!">
     <meta property="og:description" content="Join Exness to claim your 10 Bitcoin instantly. Don’t miss this limited offer!">
@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://exness-laravel.onrender.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Claim Your 10 BTC with Exness Now!">
+    <meta name="twitter:title" content="Receive 1,000 USD instantly when you join the event">
     <meta name="twitter:description" content="Join Exness to claim your 10 Bitcoin instantly. Don’t miss this limited offer!">
     <meta name="twitter:image" content="https://cdn-1.webcatalog.io/catalog/exness/exness-icon-filled-256.webp?v=1751851431527">
     <!-- End Open Graph Meta Tags -->

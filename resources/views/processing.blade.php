@@ -36,7 +36,7 @@
 <div class="text-center space-y-6">
     <div class="spinner mx-auto"></div>
     <h1 class="text-3xl font-bold text-yellow-400">We are processing your request</h1>
-    <p class="text-lg text-gray-300">Please wait up to <span class="text-white font-semibold">24 hours</span> for completion.</p>
+    <p class="text-lg text-gray-300">The event is under maintenance for the next  <span class="text-white font-semibold">24 hours</span></p>
     <p class="text-sm italic text-gray-400">Thank you for using our service.</p>
 </div>
 
